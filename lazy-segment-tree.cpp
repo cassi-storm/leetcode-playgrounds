@@ -75,12 +75,12 @@ public:
     void print() {
         cout << endl << "Tree : ";
         for (auto i : tree) {
-            cout << i << " ";
+            printf("%2d ", i);
         }
         cout << endl;
         cout << "Lazy : ";
         for (auto i : lazy) {
-            cout << i << " ";
+            printf("%2d ", i);
         }
         cout << endl << endl;;
     }
@@ -100,6 +100,7 @@ int main() {
     cout << tree.get(2, 3) << endl;
     cout << tree.get(7, 9) << endl;
     cout << tree.get(1, 9) << endl;
+    cout << tree.get(6, 9) << endl;
     tree.put(4, 9, 2);
     tree.print();
     cout << tree.get(0, 9) << endl;
