@@ -32,15 +32,15 @@ private:
     }
     int get(int node, int l, int r, int s, int e) {
         if (l > e || r < s) return 0;
-        if (l <= s && e <= r) {
-            if (lazy[node]) {
-                if (s != e) {
-                    lazy[2 * node] += lazy[node];
-                    lazy[2 * node + 1] += lazy[node];
-                }
-                tree[node] += (e - s + 1) * lazy[node];
-                lazy[node] = 0;
+        if (lazy[node]) {
+            if (s != e) {
+                lazy[2 * node] += lazy[node];
+                lazy[2 * node + 1] += lazy[node];
             }
+            tree[node] += (e - s + 1) * lazy[node];
+            lazy[node] = 0;
+        }
+        if (l <= s && e <= r) {    
             return tree[node];
         }
         int m = s + (e - s) / 2;
@@ -50,8 +50,8 @@ public:
     LazySegmentTree() {}
     LazySegmentTree(int n) {
         a = vector<int> (n, 0);
-        tree = vector<int> (n * 4, 0);
-        lazy = vector<int> (n * 4, 0);
+        tree = vector<int> (n * 3, 0);
+        lazy = vector<int> (n * 3, 0);
     }
     LazySegmentTree(vector<int>& v) {
         build(v);
