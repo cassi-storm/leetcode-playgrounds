@@ -50,8 +50,8 @@ public:
     LazySegmentTree() {}
     LazySegmentTree(int n) {
         a = vector<int> (n, 0);
-        tree = vector<int> (n * 3, 0);
-        lazy = vector<int> (n * 3, 0);
+        tree = vector<int> (n * 4, 0);
+        lazy = vector<int> (n * 4, 0);
     }
     LazySegmentTree(vector<int>& v) {
         build(v);
