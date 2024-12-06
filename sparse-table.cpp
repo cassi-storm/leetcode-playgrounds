@@ -1,6 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// gcd sparse tree -- start
+const int N = 2e5 + 10;
+int S[20][N];
+int A[N], B[N];
+pair<int, int> Q[N];
+
+void make_table(int n) {
+    for (int i = 0; i < n; ++i) {
+        S[0][i] = A[i];
+    }
+    for (int r = 1; r <= (int)log2(n); ++r) {
+        int s = 1 << (r - 1);
+        int ln = n - (1 << r) + 1;
+        for (int i = 0; i < ln; ++i) {
+            S[r][i] = __gcd(S[r - 1][i], S[r - 1][i + s]);
+        }
+    }
+}
+
+int get(int l, int r) {
+    int d = r - l + 1;
+    int index = (int)log2(d);
+    return __gcd(S[index][l], S[index][r - (1 << index) + 1]);
+}
+// gcd sparse tree -- end
+
 class SparseTable {
 public:
     vector<vector<int>> st;
