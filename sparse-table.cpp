@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// gcd sparse tree -- start
+// gcd sparse table -- start
 const int N = 2e5 + 10;
 int S[20][N];
 int A[N], B[N];
@@ -25,7 +25,7 @@ int get(int l, int r) {
     int index = (int)log2(d);
     return __gcd(S[index][l], S[index][r - (1 << index) + 1]);
 }
-// gcd sparse tree -- end
+// gcd sparse table -- end
 
 class SparseTable {
 public:
