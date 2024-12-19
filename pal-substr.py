@@ -1,7 +1,7 @@
 n = 2 * len(s) + 3
-v = '^#' + '#'.join(s) + '#$'
+v = '#'.join(f'^{s}$')
 
-C, R = 1, 1
+C, R = 0, 0
 P = [0] * n
 for i in range(1, n - 1):
     M = 2 * C - i
