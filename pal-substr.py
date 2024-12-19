@@ -1,7 +1,7 @@
-n = 2 * len(s) + 1
-v = '^' + '#'.join(s) + '$'
+n = 2 * len(s) + 3
+v = '^#' + '#'.join(s) + '#$'
 
-C, R = 0, 0
+C, R = 1, 1
 P = [0] * n
 for i in range(1, n - 1):
     M = 2 * C - i
