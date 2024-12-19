@@ -6,7 +6,7 @@ int pal_substr(string& s) {
         v[2 * i + 2] = s[i];
     }
     
-    int C = 1, R = 1;
+    int C = 0, R = 0;
     vector<int> P(n, 0);
     for (int i = 1; i < n - 1; ++i) {
         int M = 2 * C - i;
